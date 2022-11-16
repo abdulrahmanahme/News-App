@@ -1,7 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.todo">
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
    <application
-        android:label="todo"
+        android:label="News Report"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
