@@ -183,7 +183,7 @@ class DioException {
               image: 'assets/image/fetch_data_error.png', message: 'Request Cancelled'.tr());
                 case DioErrorType.other:
                 return ErrorResult(
-              image: 'assets/image/socket_error.png', message: 'No Internet connection');
+              image: 'assets/image/socket_error.png', message: 'No Internet connection'.tr());
       }
   }
   }
@@ -263,8 +263,8 @@ class BuildForErrorWidget extends StatelessWidget {
                 // image ?? 'assets/images/bad_request_error.png',
                 image,
                 //  errorResult.
-                height: 300.0,
-                width: 300.0,
+              height:50.h,
+                  width: 50.h,
                 fit: BoxFit.fill,
               ),
               Padding(
@@ -284,18 +284,14 @@ SizedBox(
 
 height: 3.h,
 ),
-
               ElevatedButton(
                         
                           style: ElevatedButton.styleFrom(
                             // backgroundColor: Colors.blueGrey.shade900,
                             primary: Colors.blueAccent,
-
                             padding: const EdgeInsets.only(
                                 top: 10, bottom: 15, left: 50, right: 50),
-
                             elevation: 6,
-
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -311,7 +307,7 @@ height: 3.h,
                           onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (_) => LayoutScreen ()));
 
-                          
+                        
                           },
                         ),
             ],

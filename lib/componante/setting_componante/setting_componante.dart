@@ -74,7 +74,7 @@ class _BuildSettingItemWidgetState extends State<BuildSettingItemWidget> {
                         width: 50.0,
                         height: 25.0,
                         toggleSize: 15.0,
-                        value: CacheService.getTheme,
+                        value: CacheService.getTheme??false,
                         borderRadius: 30.0,
                         padding: 3.0,
                         toggleColor:
@@ -90,6 +90,7 @@ class _BuildSettingItemWidgetState extends State<BuildSettingItemWidget> {
                         activeColor: Color(0xFFEAEDED),
                         inactiveColor: Color(0xFF373A3A),
                         onToggle: (isDark) {
+
                           cubit.changeAppTheme(switchValue: isDark);
                         },
                       );

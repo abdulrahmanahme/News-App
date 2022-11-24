@@ -126,7 +126,7 @@ class MyApp extends StatelessWidget {
                   backgroundColor: Color(0xFFFF212121),
                 ),
               ),
-              themeMode:CacheService.getTheme?ThemeMode.dark:ThemeMode.light,
+              themeMode:CacheService.getTheme??false?ThemeMode.dark:ThemeMode.light,
               // home: LayoutScreen(),
               home: AnimatedSplashScreen(
             duration: 2000,
@@ -138,7 +138,7 @@ class MyApp extends StatelessWidget {
             splashIconSize: 800,
            )
            );
-            
+
              }
           );
         },

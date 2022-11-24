@@ -52,7 +52,7 @@ class _ArtcialSavedState extends State<ArtcialSaved> {
                     children: [
                       // 
                       Text(
-                        'No Artical Saved',
+                        'No Artical Saved'.tr(),
                        style: TextStyle(
                 color:  Theme.of(context).textTheme.bodyText1.color,
                 fontSize: 20.sp,

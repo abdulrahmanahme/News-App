@@ -95,7 +95,7 @@ class NewsCubit extends Cubit<NewsStates> {
   // a4e6e8ceaa904626a864face924fdd60      -- abdo
   // 94f39739905c4a588a362c8f2f5c77ec
   List<dynamic> business = [];
-
+  ////////////////////
   void getBusiness(String country) {
     emit(NewsLoadingBusinessState());
     if (translator.activeLanguageCode == 'ar') {
@@ -113,6 +113,7 @@ class NewsCubit extends Cubit<NewsStates> {
       // print(business[0]['title']);
       emit(GetBusinessDataState());
     }).catchError((error) {
+      print('errrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr');
       if (error is DioError) {
         emit(NewsGetBusinessErrorState(
             error: DioException.dioExceptionHandling(
@@ -139,6 +140,8 @@ class NewsCubit extends Cubit<NewsStates> {
 
       emit(GetHeadlineDataState());
     }).catchError((error) {
+        //  emit(NewsGetHeadlineErrorState());
+
       if (error is DioError) {
         emit(NewsGetHeadlineErrorState(
             error: DioException.dioExceptionHandling(
@@ -167,7 +170,9 @@ class NewsCubit extends Cubit<NewsStates> {
         if (error is DioError) {
           emit(NewsGetSportsErrorState(
               error: DioException.dioExceptionHandling(
-                  exceptionType: error.type, response: error.response)));
+                  exceptionType: error.type, response: error.response)
+                  )
+                  );
         }
       });
     }
@@ -194,7 +199,8 @@ class NewsCubit extends Cubit<NewsStates> {
         if (error is DioError) {
           emit(NewsGetSciencErrorState(
               error: DioException.dioExceptionHandling(
-                  exceptionType: error.type, response: error.response)));
+                  exceptionType: error.type, response: error.response)
+                  ));
         }
       });
     }
@@ -221,7 +227,8 @@ class NewsCubit extends Cubit<NewsStates> {
         if (error is DioError) {
           emit(NewsGetHealthErrorState(
               error: DioException.dioExceptionHandling(
-                  exceptionType: error.type, response: error.response)));
+                  exceptionType: error.type, response: error.response)
+                  ));
         }
       });
     }
@@ -248,7 +255,8 @@ class NewsCubit extends Cubit<NewsStates> {
         if (error is DioError) {
           emit(NewsGetEnterainmentErrorState(
               error: DioException.dioExceptionHandling(
-                  exceptionType: error.type, response: error.response)));
+                  exceptionType: error.type, response: error.response)
+                  ));
         }
       });
     }
@@ -275,7 +283,8 @@ class NewsCubit extends Cubit<NewsStates> {
         if (error is DioError) {
           emit(NewsGetentTechnologyDataState(
               error: DioException.dioExceptionHandling(
-                  exceptionType: error.type, response: error.response)));
+                  exceptionType: error.type, response: error.response)
+                  ));
         }
       });
     }

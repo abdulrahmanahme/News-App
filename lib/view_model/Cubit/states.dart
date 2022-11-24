@@ -7,11 +7,10 @@ class IntialStates extends NewsStates {}
 class BottomBarIndexState extends NewsStates {}
 
 class ChangeAppModeState extends NewsStates {}
+
 class ChangedTODarkState extends NewsStates {}
 
-
-///////////get tobHeadline 
-
+///////////get tobHeadline
 
 class GetHeadlineDataState extends NewsStates {}
 
@@ -40,8 +39,7 @@ class NewsLoadingSportsState extends NewsStates {}
 
 class NewsGetSportsErrorState extends NewsStates {
   // final String error;
-  final  ErrorResult error;
-
+  final ErrorResult error;
 
   NewsGetSportsErrorState({this.error});
 }
@@ -79,7 +77,6 @@ class NewsGetHealthErrorState extends NewsStates {
   // final ErrorResult error;
   ErrorResult error;
 
-
   NewsGetHealthErrorState({this.error});
 }
 
@@ -100,7 +97,6 @@ class NewsGetEnterainmentErrorState extends NewsStates {
 class NewsGetentTechnologyDataState extends NewsStates {
   ErrorResult error;
   NewsGetentTechnologyDataState({this.error});
-
 }
 
 class NewsGetLoadingTechnologytState extends NewsStates {}
@@ -111,10 +107,4 @@ class NewsGetentTechnologyErrorState extends NewsStates {
   NewsGetentTechnologyErrorState({this.error});
 }
 
-
-
-class CarouselSliderIndex  extends NewsStates {}
-
-
-
- 
+class CarouselSliderIndex extends NewsStates {}
