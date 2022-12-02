@@ -1,4 +1,4 @@
-# news
+# News Today Now - اخبار الان
 
 A new Flutter project.
 
