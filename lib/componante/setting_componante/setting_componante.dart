@@ -8,6 +8,7 @@ import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:news/view_model/server/local/sharedpre.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class BuildSettingItemWidget extends StatefulWidget {
   final IconData icon;
@@ -50,14 +51,14 @@ class _BuildSettingItemWidgetState extends State<BuildSettingItemWidget> {
               color: Theme.of(context).textTheme.bodyText1.color,
               size: 24.0,
             ),
-            const SizedBox(
-              width: 20.0,
+            SizedBox(
+              width: 20.w,
             ),
             Text(
               widget.title,
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyText1.color,
-                fontSize: 18.0,
+                fontSize: 18.sp,
                 height: 1.0,
                 fontWeight: FontWeight.w600,
                 overflow: TextOverflow.ellipsis,
@@ -74,7 +75,7 @@ class _BuildSettingItemWidgetState extends State<BuildSettingItemWidget> {
                         width: 50.0,
                         height: 25.0,
                         toggleSize: 15.0,
-                        value: CacheService.getTheme??false,
+                        value: CacheService.getTheme ?? false,
                         borderRadius: 30.0,
                         padding: 3.0,
                         toggleColor:
@@ -90,7 +91,6 @@ class _BuildSettingItemWidgetState extends State<BuildSettingItemWidget> {
                         activeColor: Color(0xFFEAEDED),
                         inactiveColor: Color(0xFF373A3A),
                         onToggle: (isDark) {
-
                           cubit.changeAppTheme(switchValue: isDark);
                         },
                       );
@@ -178,7 +178,7 @@ class BuildVersionWidget extends StatelessWidget {
                 Text(
                   snapshot.data.version,
                   style: TextStyle(
-                    color:Theme.of(context).textTheme.bodyText1.color,
+                    color: Theme.of(context).textTheme.bodyText1.color,
                     fontSize: 16.0,
                     fontWeight: FontWeight.w600,
                   ),
@@ -198,7 +198,7 @@ class BuildVersionWidget extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '0.10.1',
+                  '0.10.2',
                   style: TextStyle(
                     color: Theme.of(context).tabBarTheme.labelColor,
                     fontSize: 14.0,
@@ -218,67 +218,70 @@ List<BuildSettingItemWidget> settingItems(BuildContext context) {
     BuildSettingItemWidget(
       title: 'About'.tr(),
       icon: Icons.help_outline,
-      onClick: () => materialNavigateTo(context: context, screen: AboutView()),
+      onClick: () => materialNavigateTo(
+        context: context,
+        screen: AboutView(),
+      ),
     ),
     BuildSettingItemWidget(
       title: 'Service Provider'.tr(),
       icon: Icons.web,
       onClick: () => launchURL('https://newsapi.org/'),
     ),
-    BuildSettingItemWidget(
-      title: 'country'.tr(),
-      icon: Icons.language_outlined,
-      onClick: () {
-        showModalBottomSheet(
-            backgroundColor: Colors.transparent,
-            context: context,
-            builder: (_) {
-              return Container(
-                height: 170.0,
-                width: double.infinity,
-                margin: const EdgeInsets.symmetric(horizontal: 50.0),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(25.0),
-                    topRight: Radius.circular(25.0),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 3.0,
-                        width: 200.0,
-                        margin: const EdgeInsets.only(top: 15.0, bottom: 20.0),
-                        color: Colors.deepOrange,
-                      ),
-                      ListView.separated(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: bottomSheetItems(context).length,
-                        itemBuilder: (_, index) {
-                          return bottomSheetItems(context)[index];
-                        },
-                        separatorBuilder: (_, index) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 15.0),
-                          child: Divider(
-                            height: 5.0,
-                            color: Theme.of(context).tabBarTheme.labelColor,
-                            thickness: 1.5,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            });
-      },
-    ),
+    // BuildSettingItemWidget(
+    //   title: 'country'.tr(),
+    //   icon: Icons.language_outlined,
+    //   onClick: () {
+    //     showModalBottomSheet(
+    //         backgroundColor: Colors.transparent,
+    //         context: context,
+    //         builder: (_) {
+    //           return Container(
+    //             height: 170.0,
+    //             width: double.infinity,
+    //             margin: const EdgeInsets.symmetric(horizontal: 50.0),
+    //             decoration: BoxDecoration(
+    //               color: Theme.of(context).scaffoldBackgroundColor,
+    //               borderRadius: const BorderRadius.only(
+    //                 topLeft: Radius.circular(25.0),
+    //                 topRight: Radius.circular(25.0),
+    //               ),
+    //             ),
+    //             child: Padding(
+    //               padding: const EdgeInsets.symmetric(horizontal: 20.0),
+    //               child: Column(
+    //                 mainAxisAlignment: MainAxisAlignment.start,
+    //                 crossAxisAlignment: CrossAxisAlignment.center,
+    //                 children: [
+    //                   Container(
+    //                     height: 3.h,
+    //                     width: 200.w,
+    //                     margin: const EdgeInsets.only(top: 15.0, bottom: 20.0),
+    //                     color: Colors.deepOrange,
+    //                   ),
+    //                   ListView.separated(
+    //                     shrinkWrap: true,
+    //                     physics: const NeverScrollableScrollPhysics(),
+    //                     itemCount: bottomSheetItems(context).length,
+    //                     itemBuilder: (_, index) {
+    //                       return bottomSheetItems(context)[index];
+    //                     },
+    //                     separatorBuilder: (_, index) => Padding(
+    //                       padding: const EdgeInsets.symmetric(vertical: 15.0),
+    //                       child: Divider(
+    //                         height: 5.0,
+    //                         color: Theme.of(context).tabBarTheme.labelColor,
+    //                         thickness: 1.5,
+    //                       ),
+    //                     ),
+    //                   ),
+    //                 ],
+    //               ),
+    //             ),
+    //           );
+    //         });
+    // },
+    // ),
     BuildSettingItemWidget(
       title: 'Dark Mode'.tr(),
       icon: Icons.wb_incandescent_outlined,

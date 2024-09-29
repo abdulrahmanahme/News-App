@@ -13,7 +13,6 @@ class SettingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: buildCustomAppBar(title: 'setting'.tr()),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -23,7 +22,7 @@ class SettingView extends StatelessWidget {
               SizedBox(
                 height: 2.h,
               ),
-           const BuildVersionWidget(),
+              const BuildVersionWidget(),
               ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -42,7 +41,9 @@ class SettingView extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                    vertical: 20.0, horizontal: 50.0),
+                  vertical: 20.0,
+                  horizontal: 50.0,
+                ),
                 child: Divider(
                   color: Theme.of(context).tabBarTheme.labelColor,
                   thickness: 1.0,
@@ -51,7 +52,6 @@ class SettingView extends StatelessWidget {
               Text(
                 'contact us'.tr(),
                 style: TextStyle(
-                  // color: Theme.of(context).tabBarTheme.labelColor,
                   color: Theme.of(context).textTheme.bodyText1.color,
                   // color: Theme.of(context).brightness == Brightness.dark? Colors.black:Colors.white,
 
@@ -86,6 +86,3 @@ class SettingView extends StatelessWidget {
     );
   }
 }
-
-
-

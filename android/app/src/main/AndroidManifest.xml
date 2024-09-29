@@ -3,7 +3,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
    <application
-        android:label="News Report"
+        android:label="News Today Now"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

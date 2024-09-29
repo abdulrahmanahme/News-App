@@ -9,21 +9,22 @@ import 'package:news/view/screens/settings_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:news/view/screens/sreach_screen.dart';
 import 'package:news/view/screens/home_screen.dart';
-import 'package:news/view/screens/saved_artical_screen.dart';
 import 'package:news/view_model/server/local/sharedpre.dart';
 import 'package:news/view_model/server/local/data_base.dart';
-import 'package:news/model/artical_model_db.dart';
 import 'package:news/view_model/server/remote/network_exceptions/network_exceptions.dart';
-import 'package:news/view_model/server/remote/Dio_helper.dart';
+import 'package:news/view_model/server/remote/dio_helper.dart';
 import 'package:dio/dio.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:news/view_model/server/local/sharedpre.dart';
 import 'dart:io';
 
+import '../../view/screens/saved_artical_screen.dart';
+
 class NewsCubit extends Cubit<NewsStates> {
   NewsCubit() : super(IntialStates());
   static NewsCubit get(context) => BlocProvider.of(context);
+final TextEditingController controller = TextEditingController();
 
   int counter = 0;
   int carouselSliderIndex = 0;
@@ -61,10 +62,10 @@ class NewsCubit extends Cubit<NewsStates> {
     'Bookmark'.tr(),
     'Settings'.tr(),
   ];
-  var newbody = [
+  var newsboy = [
     HomeScreen(),
-    SreachScreen(),
-    ArtcialSaved(),
+    SearchScreen(),
+    ArticleSaved(),
     SettingView(),
   ];
   List<BottomNavigationBarItem> itemsBottom = [
@@ -290,9 +291,9 @@ class NewsCubit extends Cubit<NewsStates> {
     }
   }
 
-  List<dynamic> sreach = [];
+  List<dynamic> search = [];
 
-  void getSreach(String value) {
+  void getSearch(String value) {
     emit(NewsGetLoadingsreachState());
 
     DioHelper.getData(url: 'v2/everything', query: {
@@ -300,7 +301,7 @@ class NewsCubit extends Cubit<NewsStates> {
       "apiKey": key,
     }).then((value) {
       
-      sreach = value.data['articles'];
+      search = value.data['articles'];
       emit(NewsGetsreachDataState());
     }).catchError((error) {
       if (error is DioError) {

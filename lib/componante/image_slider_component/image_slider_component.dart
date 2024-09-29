@@ -8,9 +8,9 @@ import 'package:localize_and_translate/localize_and_translate.dart';
 
 import 'package:timeago/timeago.dart' as timeago;
 
-Widget buildImageSlider(BuildContext context, List<dynamic> article) {
+Widget buildImageSlider(BuildContext context, List<dynamic> Article) {
   var md = MediaQuery.of(context).size;
-  int size = article.length;
+  int size = Article.length;
   var element = List<int>.generate(size, (i) => i);
 
   return SingleChildScrollView(
@@ -36,7 +36,7 @@ Widget buildImageSlider(BuildContext context, List<dynamic> article) {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          WebViewScreen(url: article[i]["url"])),
+                          WebViewScreen(url: Article[i]["url"])),
                 );
               },
               child:  Card(
@@ -68,7 +68,7 @@ Widget buildImageSlider(BuildContext context, List<dynamic> article) {
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: NetworkImage(
-                                '${(article[i]['urlToImage']) == null ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png' : article[i]['urlToImage']}',
+                                '${(Article[i]['urlToImage']) == null ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png' : Article[i]['urlToImage']}',
                               ),
                             ),
                           ),
@@ -87,12 +87,12 @@ Widget buildImageSlider(BuildContext context, List<dynamic> article) {
                                   translator.activeLanguageCode == 'en'
                                       ? timeago.format(
                                           (DateTime.tryParse(
-                                                  article[i]['publishedAt']) ??
+                                                  Article[i]['publishedAt']) ??
                                               nullDate),
                                         )
                                       : ConvertToTimeAgo.convertToTimeAgo(
                                           DateTime.parse(
-                                              article[i]['publishedAt']),
+                                              Article[i]['publishedAt']),
                                         ),
                                   ///////////Technology
               
@@ -109,7 +109,7 @@ Widget buildImageSlider(BuildContext context, List<dynamic> article) {
                               ],
                             ),
                             Text(
-                              article[i]['title'],
+                              Article[i]['title'],
                               overflow: TextOverflow.ellipsis,
                               maxLines: 3,
                               style: const TextStyle(

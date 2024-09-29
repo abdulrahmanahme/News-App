@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:news/componante/article_componate/article_componate.dart';
 import 'package:news/view_model/Cubit/cubit.dart';
@@ -9,14 +8,13 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:flutter/services.dart';
 
-class SreachScreen extends StatefulWidget {
+class SearchScreen extends StatefulWidget {
   @override
-  State<SreachScreen> createState() => _SreachScreenState();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
-  final TextEditingController _controller = TextEditingController();
 
-class _SreachScreenState extends State<SreachScreen> {
-   void initState() {
+class _SearchScreenState extends State<SearchScreen> {
+  void initState() {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
@@ -28,46 +26,30 @@ class _SreachScreenState extends State<SreachScreen> {
     return BlocConsumer<NewsCubit, NewsStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        var list = NewsCubit.get(context).sreach;
+        var list = NewsCubit.get(context).search;
         return Scaffold(
-            // backgroun
-            //dColor:Theme.of(context).textTheme.bodyText1.color,
-            // appBar: AppBar(),
-            body: Column(
-              
-                  children: [
-                    SizedBox(
-height: 7.h,
-                    ),
-  
-                            
-        
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text_Form_Widget(
-                      controller: _controller ,
-                        lableText: "Sreach".tr(),
-                        hintText: "Sreach".tr(),
-                       
-                        prefixIcon: Icon(Icons.search),
-                        onTap: () {},
-                        onChanged: (value) {
-                          NewsCubit.get(context).getSreach(value);
-                         
-                        },
-                      ),
-                    ),
-                     if(_controller.text.isNotEmpty)
-                    Expanded(
-                      child: articleBuilder(list, context, isSreach: true),
-                    ),
-                  ],
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text_Form_Widget(
+                  controller: context.read<NewsCubit>().controller,
+                  hintText: "Search".tr(),
+                  prefixIcon: Icon(Icons.search,color: Colors.black38,),
+                  onChanged: (value) {
+                    NewsCubit.get(context).getSearch(value);
+                  },
                 ),
-            );
+              ),
+              if (context.read<NewsCubit>().controller.text.isNotEmpty)
+                Expanded(
+                  child: ArticleBuilder(list, context, isSearch: true),
+                ),
+            ],
+          ),
+        );
       },
     );
   }
 }
- 
-
- 

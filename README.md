@@ -5,7 +5,7 @@ A new Flutter project.
 ## About App
 News Today Now app
 News Today Now is the news application that shows the latest news in Egypt and United States for many categories such as business, health, sports , entertainment and etc.....
-This project is built using MVVM architecture pattern with a Bloc for state management. use database helper concept. Sqflite plugin for saving articles in local memory.
+This project is built using MVVM architecture pattern with a Bloc for state management. use database helper concept. Sqflite plugin for saving Articles in local memory.
 This project is a starting point for a Flutter application.
 ## Google play: 
 https://play.google.com/store/apps/details?id=com.News.Today.now&pli=1 

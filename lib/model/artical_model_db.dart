@@ -1,7 +1,7 @@
 
-final String tableArtical = 'News';
+final String tableArticle = 'News';
 
-class ArticalFields {
+class ArticleFields {
   static final List<String> values = [
     /// Add all fields
     id, dark, image, title, description, time
@@ -17,7 +17,7 @@ class ArticalFields {
   static final String time = 'time';
 }
 
-class Artical {
+class Article {
   final int id;
   final String url;
   final bool dark;
@@ -28,7 +28,7 @@ class Artical {
   final String createdTime;
 
 
-  const Artical({
+  const Article({
     this.id,
     this.url,
      this.dark,
@@ -38,7 +38,7 @@ class Artical {
   this.createdTime,
   });
 
-  Artical copy({
+  Article copy({
     int id,
     bool dark,
     String url,
@@ -47,7 +47,7 @@ class Artical {
     // String description,
     String createdTime,
   }) =>
-      Artical(
+      Article(
         id: id ?? this.id,
         dark: dark ?? this.dark,
         url: url??this.url,
@@ -57,25 +57,25 @@ class Artical {
         createdTime: createdTime ?? this.createdTime,
       );
 
-  static Artical fromJson(Map<String, Object> json) => Artical(
-        id: json[ArticalFields .id] as int,
-        url:json[ArticalFields.url] as String ,
-        dark: json[ArticalFields .dark] == 1,
-        image: json[ArticalFields .image] as String,
-        title: json[ArticalFields .title] as String,
-        // description: json[ArticalFields .description] as String,
-        // createdTime: DateTime.parse(json[ArticalFields.time] as String),
-        createdTime: json[ArticalFields.time] as String,
+  static Article fromJson(Map<String, Object> json) => Article(
+        id: json[ArticleFields .id] as int,
+        url:json[ArticleFields.url] as String ,
+        dark: json[ArticleFields .dark] == 1,
+        image: json[ArticleFields .image] as String,
+        title: json[ArticleFields .title] as String,
+        // description: json[ArticleFields .description] as String,
+        // createdTime: DateTime.parse(json[ArticleFields.time] as String),
+        createdTime: json[ArticleFields.time] as String,
 
       );
 
   Map<String, Object> toJson() => {
-        ArticalFields .id: id,
-        ArticalFields.url:url,
-        ArticalFields .title: title,
-        ArticalFields .dark: dark ? 1 : 0,
-        ArticalFields .image: image,
-        // ArticalFields .description: description,
-        ArticalFields .time: createdTime,
+        ArticleFields .id: id,
+        ArticleFields.url:url,
+        ArticleFields .title: title,
+        ArticleFields .dark: dark ? 1 : 0,
+        ArticleFields .image: image,
+        // ArticleFields .description: description,
+        ArticleFields .time: createdTime,
       };
 }
