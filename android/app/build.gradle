@@ -46,7 +46,7 @@ android {
         applicationId "com.News.Today.now"
         minSdkVersion 23
         targetSdkVersion 34
-        versionCode 2
+        versionCode 3
         versionName "1.2.0"
     }
 

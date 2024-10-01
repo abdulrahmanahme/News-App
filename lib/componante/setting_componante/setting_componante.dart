@@ -44,7 +44,8 @@ class _BuildSettingItemWidgetState extends State<BuildSettingItemWidget> {
         padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
-          textBaseline: TextBaseline.alphabetic,
+          // textBaseline: TextBaseline.ideographic,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Icon(
               widget.icon,
@@ -52,7 +53,7 @@ class _BuildSettingItemWidgetState extends State<BuildSettingItemWidget> {
               size: 24.0,
             ),
             SizedBox(
-              width: 20.w,
+              width: 5.w,
             ),
             Text(
               widget.title,
@@ -300,21 +301,21 @@ List<BuildContactUsItemWidget> contactItems() {
         launchURL('mailto:abdelramanahmed00@gmail.com');
       },
     ),
-    BuildContactUsItemWidget(
-      title: 'Facebook',
-      imageIcon: 'assets/image/facebook.png',
-      onClick: () {
-        launchURL(
-            'https://www.facebook.com/people/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D8%A7%D9%84%D9%85%D8%A3%D9%85%D9%88%D8%B1/100004846755414/');
-      },
-    ),
-    BuildContactUsItemWidget(
-      title: 'LinkedIn',
-      imageIcon: 'assets/image/linkedin.png',
-      onClick: () {
-        launchURL('https://www.linkedin.com/in/abdulrahman-almamur/');
-      },
-    ),
+    // BuildContactUsItemWidget(
+    //   title: 'Facebook',
+    //   imageIcon: 'assets/image/facebook.png',
+    //   onClick: () {
+    //     launchURL(
+    //         'https://www.facebook.com/people/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D8%A7%D9%84%D9%85%D8%A3%D9%85%D9%88%D8%B1/100004846755414/');
+    //   },
+    // ),
+    // BuildContactUsItemWidget(
+    //   title: 'LinkedIn',
+    //   imageIcon: 'assets/image/linkedin.png',
+    //   onClick: () {
+    //     launchURL('https://www.linkedin.com/in/abdulrahman-almamur/');
+    //   },
+    // ),
   ];
 }
 
